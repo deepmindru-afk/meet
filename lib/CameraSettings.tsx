@@ -8,13 +8,13 @@ import {
 } from '@livekit/components-react';
 import { BackgroundBlur, VirtualBackground } from '@livekit/track-processors';
 import { isLocalTrack, LocalTrackPublication, Track } from 'livekit-client';
-import Desk from '../public/background-images/samantha-gades-BlIhVfXbi9s-unsplash.jpg';
-import Nature from '../public/background-images/ali-kazal-tbw_KQE3Cbg-unsplash.jpg';
+//import Desk from '../public/background-images/samantha-gades-BlIhVfXbi9s-unsplash.jpg';
+//import Nature from '../public/background-images/ali-kazal-tbw_KQE3Cbg-unsplash.jpg';
 
 // Background image paths
 const BACKGROUND_IMAGES = [
-  { name: 'Desk', path: Desk },
-  { name: 'Nature', path: Nature },
+  { name: 'Desk', path: "https://raw.githubusercontent.com/sorokinvld/portal-brandpack/423f16ea2fcd9d4d3400f8e3915dbcf582eaf595/Portal_224.png" },
+  { name: 'Nature', path: "https://raw.githubusercontent.com/sorokinvld/portal-brandpack/423f16ea2fcd9d4d3400f8e3915dbcf582eaf595/Portal_224.png" },
 ];
 
 // Background options
