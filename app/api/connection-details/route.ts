@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
     }
     const participantToken = await createParticipantToken(
       {
-        identity: `${participantName}__${randomParticipantPostfix}`,
+        identity: `${participantName}_${randomParticipantPostfix}`,
         name: participantName,
         metadata,
       },
