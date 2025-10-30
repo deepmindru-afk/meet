@@ -7,6 +7,7 @@ import { NextRequest, NextResponse } from 'next/server';
 const API_KEY = process.env.LIVEKIT_API_KEY;
 const API_SECRET = process.env.LIVEKIT_API_SECRET;
 const LIVEKIT_URL = process.env.LIVEKIT_URL;
+const AGENT_NAME = process.env.AGENT_NAME;
 
 const COOKIE_KEY = 'random-participant-postfix';
 
@@ -25,7 +26,6 @@ export async function GET(request: NextRequest) {
     if (livekitServerUrl === undefined) {
       throw new Error('Invalid region');
     }
-
     if (typeof roomName !== 'string') {
       return new NextResponse('Missing required query parameter: roomName', { status: 400 });
     }
@@ -33,17 +33,23 @@ export async function GET(request: NextRequest) {
       return new NextResponse('Missing required query parameter: participantName', { status: 400 });
     }
 
+    if (AGENT_NAME === undefined) {
+      const AGENT_NAME = 'portal-multiuser-agent';
+    }
+
     // Generate participant token
     if (!randomParticipantPostfix) {
       randomParticipantPostfix = randomString(4);
     }
+    const agentName = AGENT_NAME;
     const participantToken = await createParticipantToken(
       {
-        identity: `${participantName}_${randomParticipantPostfix}`,
+        identity: `${participantName}__${randomParticipantPostfix}`,
         name: participantName,
         metadata,
       },
       roomName,
+      agentName,
     );
 
     // Return connection details
@@ -66,7 +72,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
-function createParticipantToken(userInfo: AccessTokenOptions, roomName: string) {
+function createParticipantToken(userInfo: AccessTokenOptions, roomName: string, agentName?: string) {
   const at = new AccessToken(API_KEY, API_SECRET, userInfo);
   at.ttl = '5m';
   const grant: VideoGrant = {
@@ -77,6 +83,13 @@ function createParticipantToken(userInfo: AccessTokenOptions, roomName: string) 
     canSubscribe: true,
   };
   at.addGrant(grant);
+
+  if (agentName) {
+    at.roomConfig = new RoomConfiguration({
+      agents: [{ agentName }],
+    });
+  }
+
   return at.toJwt();
 }
 
