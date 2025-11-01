@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
     }
 
     if (AGENT_NAME === undefined) {
-      const AGENT_NAME = 'portal-multiuser-agent';
+      const AGENT_NAME = 'portal-agent';
     }
 
     // Generate participant token
