@@ -3,24 +3,24 @@ import { getLiveKitURL } from './getLiveKitURL';
 
 describe('getLiveKitURL', () => {
   it('returns the original URL if no region is provided', () => {
-    const url = 'https://myproject.livekit.cloud';
+    const url = 'https://www.portalos.ru';
     expect(getLiveKitURL(url, null)).toBe(url + '/');
   });
 
   it('inserts the region into livekit.cloud URLs', () => {
-    const url = 'https://myproject.livekit.cloud';
+    const url = 'https://www.portalos.ru';
     const region = 'eu';
-    expect(getLiveKitURL(url, region)).toBe('https://myproject.eu.production.livekit.cloud/');
+    expect(getLiveKitURL(url, region)).toBe('https://www.portalos.ru');
   });
 
   it('inserts the region into livekit.cloud URLs and preserves the staging environment', () => {
-    const url = 'https://myproject.staging.livekit.cloud';
+    const url = 'https://www.portalos.ru';
     const region = 'eu';
-    expect(getLiveKitURL(url, region)).toBe('https://myproject.eu.staging.livekit.cloud/');
+    expect(getLiveKitURL(url, region)).toBe('https://www.portalos.ru');
   });
 
   it('returns the original URL for non-livekit.cloud hosts, even with region', () => {
-    const url = 'https://example.com';
+    const url = 'https://www.portalos.ru';
     const region = 'us';
     expect(getLiveKitURL(url, region)).toBe(url + '/');
   });

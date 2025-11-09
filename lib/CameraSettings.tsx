@@ -13,8 +13,8 @@ import { isLocalTrack, LocalTrackPublication, Track } from 'livekit-client';
 
 // Background image paths
 const BACKGROUND_IMAGES = [
-  { name: 'Desk', path: "https://raw.githubusercontent.com/sorokinvld/portal-brandpack/423f16ea2fcd9d4d3400f8e3915dbcf582eaf595/Portal_224.png" },
-  { name: 'Nature', path: "https://raw.githubusercontent.com/sorokinvld/portal-brandpack/423f16ea2fcd9d4d3400f8e3915dbcf582eaf595/Portal_224.png" },
+  { name: 'Desk', path: "https://raw.githubusercontent.com/sorokinvld/portal-brandpack/423f16ea2fcd9d4d3400f8e3915dbcf582eaf595/Portal_224.png?raw=True" },
+  { name: 'Nature', path: "https://raw.githubusercontent.com/sorokinvld/portal-brandpack/423f16ea2fcd9d4d3400f8e3915dbcf582eaf595/Portal_224.png?raw=True" },
 ];
 
 // Background options
@@ -90,7 +90,7 @@ export function CameraSettings() {
             className="lk-button"
             aria-pressed={backgroundType === 'none'}
             style={{
-              border: backgroundType === 'none' ? '2px solid #0090ff' : '1px solid #d1d1d1',
+              border: backgroundType === 'none' ? '2px solid #aa0a95ff' : '1px solid #d1d1d1',
               minWidth: '80px',
             }}
           >
@@ -102,7 +102,7 @@ export function CameraSettings() {
             className="lk-button"
             aria-pressed={backgroundType === 'blur'}
             style={{
-              border: backgroundType === 'blur' ? '2px solid #0090ff' : '1px solid #d1d1d1',
+              border: backgroundType === 'blur' ? '2px solid #6f0778ff' : '1px solid #d1d1d1',
               minWidth: '80px',
               backgroundColor: '#f0f0f0',
               position: 'relative',
@@ -152,7 +152,7 @@ export function CameraSettings() {
                 height: '60px',
                 border:
                   backgroundType === 'image' && virtualBackgroundImagePath === image.path.src
-                    ? '2px solid #0090ff'
+                    ? '2px solid #a600ffff'
                     : '1px solid #d1d1d1',
               }}
             >
