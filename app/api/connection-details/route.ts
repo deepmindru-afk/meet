@@ -40,12 +40,12 @@ export async function GET(request: NextRequest) {
 
     // Generate participant token
     if (!randomParticipantPostfix) {
-      randomParticipantPostfix = randomString(4);
+      randomParticipantPostfix = randomString(1);
     }
     const agentName = AGENT_NAME;
     const participantToken = await createParticipantToken(
       {
-        identity: `${participantName}__${randomParticipantPostfix}`,
+        identity: `${participantName}_${randomParticipantPostfix}`,
         name: participantName,
         metadata,
       },
