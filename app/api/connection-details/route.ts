@@ -45,7 +45,7 @@ export async function GET(request: NextRequest) {
     const agentName = AGENT_NAME;
     const participantToken = await createParticipantToken(
       {
-        identity: `${participantName}_${randomParticipantPostfix}`,
+        identity: participantName, //  `${participantName}_${randomParticipantPostfix}`,
         name: participantName,
         metadata,
       },
