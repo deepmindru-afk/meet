@@ -39,13 +39,13 @@ export const metadata: Metadata = {
         url: '/images/livekit-apple-touch.png',
         sizes: '180x180',
       },
-      { rel: 'mask-icon', url: '/images/livekit-safari-pinned-tab.svg', color: '#070707' },
+      { rel: 'mask-icon', url: '/images/livekit-safari-pinned-tab.svg', color: '#000000ff' },
     ],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: '#070707',
+  themeColor: '#000000ff',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
