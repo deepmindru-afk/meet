@@ -7,8 +7,8 @@ import { KeyboardShortcuts } from '@/lib/KeyboardShortcuts';
 import { RecordingIndicator } from '@/lib/RecordingIndicator';
 import { SettingsMenu } from '@/lib/SettingsMenu';
 import { ConnectionDetails } from '@/lib/types';
+import { formatChatMarkdown } from '@/lib/chat-markdown';
 import {
-  formatChatMessageLinks,
   LocalUserChoices,
   PreJoin,
   RoomContext,
@@ -228,7 +228,7 @@ function VideoConferenceComponent(props: {
       <RoomContext.Provider value={room}>
         <KeyboardShortcuts />
         <VideoConference
-          chatMessageFormatter={formatChatMessageLinks}
+          chatMessageFormatter={formatChatMarkdown}
           SettingsComponent={SHOW_SETTINGS_MENU ? SettingsMenu : undefined}
         />
         <DebugMode />
