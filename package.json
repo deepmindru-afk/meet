@@ -19,7 +19,6 @@
     "@livekit/track-processors": "^0.7.0",
     "livekit-client": "2.20.1",
     "livekit-server-sdk": "2.15.4",
-    "livekit/components-styles",
     "next": "15.5.16",
     "react": "18.3.1",
     "react-dom": "18.3.1",
